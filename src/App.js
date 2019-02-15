@@ -31,11 +31,6 @@ class App extends Component {
         });
       });
   };
-  // async componentDidMount() {
-  //   const res = await fetch("http://localhost:3001/articles");
-  //   const json = await res.json();
-  //   this.setState({ articles: json });
-  // }
 
   componentDidMount = async () => {
     try {
