@@ -31,11 +31,12 @@ class AddArticle extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <h3>add article</h3>
+          {/* <h3>add article</h3> */}
           <div>
+            <h4>add article</h4>
             <label style={{ paddingLeft: "10px" }}>Title</label>
             <input
-              className="my-5 mx-5"
+              className="my-2 mx-5"
               type="text"
               name="title"
               onChange={this.handleTitleChange}
@@ -46,7 +47,7 @@ class AddArticle extends Component {
           <div style={{ marginTop: "2px" }}>
             <label style={{ paddingLeft: "10px" }}>img</label>
             <input
-              className="my-5 mx-5"
+              className="my-3 mx-5"
               type="text"
               name="image"
               onChange={this.handleImageChange}
