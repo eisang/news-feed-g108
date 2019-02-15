@@ -1,10 +1,39 @@
 import React, { Component } from "react";
 import ArticleList from "./components/ArticleList";
+import AddArticle from "./components/AddArticle";
 // import axios from "axios";
 
 class App extends Component {
   state = {
     articles: []
+  };
+
+  addArticle = newArticle => {
+    //console.log("APP ", newArticle);
+    const { title, img } = newArticle;
+    fetch("http://localhost:3001/articles/", {
+      method: "post",
+      body: JSON.stringify({ title, img }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(json => {
+        this.setState(prevState => {
+          return {
+            article: [
+              ...prevState.article,
+              {
+                title,
+                img
+              }
+            ]
+          };
+        });
+        //catch(e => {
+        // alert(e);
+      });
   };
 
   componentDidMount = async () => {
@@ -27,8 +56,8 @@ class App extends Component {
     return (
       <div>
         <h4>Article App</h4>
-        <h2>yaya</h2>
         <ArticleList articles={this.state.articles} />
+        <AddArticle addArticle={this.addArticle} />
       </div>
     );
   }
